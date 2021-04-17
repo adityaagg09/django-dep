@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Django-Home</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            <li><a href="{% url 'basic_app:register' %}">Register</a></li>
+             
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+            <li><a href="{% url 'basic_app:user_login' %}">Login</a></li>
+
+            {% endif %}
+
+        </ul>
+    </nav>
+    {% block body_block%}
+    
+    {% endblock %}
+</body>
+</html>
